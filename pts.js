@@ -10,7 +10,9 @@
 // respts.innerHTML = currentpts
 
 function calc() {
+    let history = document.getElementById('history')
     let lastpts = document.getElementById("lastpt");
+    let vvod = document.getElementById('input').value;
     let currentpts = Number(document.getElementById('input').value);
     console.log(currentpts);
     let respts = document.getElementById('respt');
@@ -18,24 +20,36 @@ function calc() {
     let numlastpts = Number(lastpts.innerHTML)
     let numrespts = Number(currentpts.innerHTML)
     // if (!isNaN(currentpts)){
-    
-    if (currentpts !== 0 && !isNaN(currentpts) && currentpts >= 10 && (currentpts ^ 0) === currentpts ){
+    if (currentpts !== 0 && !isNaN(currentpts) && currentpts >= 10 && (currentpts ^ 0) === currentpts){
 
         if (numlastpts > currentpts) {
         
             respts.style.color = '#FF0000';
             // isNaN(currentpts) ? respts.innerHTML = "введите свои эмэмэры" :
             respts.innerHTML =  `-${numlastpts - currentpts}`;
+            if (respts.innerHTML != 0) {
+            history.insertAdjacentHTML('afterbegin', `<p><font color='#FF0000'>before:${lastpts.innerHTML} after:${currentpts} difference ${respts.innerHTML}</font></p>`)
+            }
         }
         else {
             respts.style.color = '#00FF00';
             // isNaN(currentpts) ? respts.innerHTML = "введите свои эмэмэры" :
             respts.innerHTML = `+${currentpts - numlastpts}`;
-            
+            if (respts.innerHTML != 0) {
+            history.insertAdjacentHTML('afterbegin', `<p><font color='#00FF00'>before:${lastpts.innerHTML} after:${currentpts} difference ${respts.innerHTML} </font></p>`)
+            }
         }
+
+        
+        // history.insertAdjacentHTML('afterbegin', `<p>before:${lastpts.innerHTML} after:${currentpts} </p>`)
         lastpts.innerHTML = currentpts
+
     }
     else{
         respts.style.color = '#999999';
         respts.innerHTML = "введите свои эмэмэры"}
+
+    document.getElementById('input').value = ''
+    
 }
+
