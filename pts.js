@@ -12,23 +12,24 @@
 function calc() {
     let history = document.getElementById('history')
     let lastpts = document.getElementById("lastpt");
-    let vvod = document.getElementById('input').value;
     let currentpts = Number(document.getElementById('input').value);
     console.log(currentpts);
     let respts = document.getElementById('respt');
     // alert (typeof(Number(lastpts.innerHTML)))
     let numlastpts = Number(lastpts.innerHTML)
-    let numrespts = Number(currentpts.innerHTML)
     // if (!isNaN(currentpts)){
+    let oldparty = document.getElementById('party');
+    console.log('cum: ', party.checked)
     if (currentpts !== 0 && !isNaN(currentpts) && currentpts >= 10 && (currentpts ^ 0) === currentpts){
-
+    oldparty.checked ? oldparty = 20 : oldparty = 30;
         if (numlastpts > currentpts) {
         
             respts.style.color = '#FF0000';
             // isNaN(currentpts) ? respts.innerHTML = "введите свои эмэмэры" :
             respts.innerHTML =  `-${numlastpts - currentpts}`;
             if (respts.innerHTML != 0) {
-            history.insertAdjacentHTML('afterbegin', `<p><font color='#FF0000'>before:${lastpts.innerHTML} after:${currentpts} difference ${respts.innerHTML}</font></p>`)
+            history.insertAdjacentHTML('afterbegin', `<p><font color='#FF0000'>before:${lastpts.innerHTML} 
+            after:${currentpts} difference ${respts.innerHTML} old: -${oldparty}</font></p>`)
             }
         }
         else {
@@ -36,7 +37,8 @@ function calc() {
             // isNaN(currentpts) ? respts.innerHTML = "введите свои эмэмэры" :
             respts.innerHTML = `+${currentpts - numlastpts}`;
             if (respts.innerHTML != 0) {
-            history.insertAdjacentHTML('afterbegin', `<p><font color='#00FF00'>before:${lastpts.innerHTML} after:${currentpts} difference ${respts.innerHTML} </font></p>`)
+            history.insertAdjacentHTML('afterbegin', `<p><font color='#00FF00'>before:${lastpts.innerHTML} 
+            after:${currentpts} difference ${respts.innerHTML} old: +${oldparty}</font></p>`)
             }
         }
 
