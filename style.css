@@ -14,6 +14,19 @@ p{
     margin-top: 1px;
     margin-bottom: 10px;
 }
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+  }
+  
+.party {
+    transform:scale(2);
+  opacity:0.9;
+  cursor:pointer;
+}
+
 
 .suck {
     margin:auto;
