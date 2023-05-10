@@ -52,6 +52,22 @@ function calc() {
         respts.innerHTML = "введите свои эмэмэры"}
 
     document.getElementById('input').value = ''
-    
+    document.cookie = "element=" + document.getElementById("history").innerHTML;
+    let cookies = document.cookie.split(";");
+
+    for (let i = 0; i < cookies.length; i++) {
+        let cookie = cookies[i];
+        while (cookie.charAt(0) == " ") {
+        cookie = cookie.substring(1);
+    }
+    if (cookie.indexOf("element=") == 0) {
+        let element = cookie.substring("element=".length, cookie.length);
+        console.log(element);
+    }
 }
+
+
+}
+
+
 
